@@ -1,0 +1,24 @@
+********Queury
+
+1. select HName from City inner join Hub  on City.CityId=Hub.CityId where CityName='new delhi';
+
+2. select CityName from City join State on State.StateId=City.StateId where StateName='Maharashtra';
+
+3.// *****selecected car fuel status,avilability,not between servicedate********
+
+select CImg,VName,CType,RDaily,RWeekly,RMonthly 
+from 
+Vehicle join Hub 
+on 
+Vehicle.HubId=Hub.HubId inner join CarClass 
+on 
+Vehicle.CarId=CarClass.CarId
+where
+HName='Patel Nagar' and Available=1 and FuelStatus=1 and ServiceDate not between '2018-05-23'  and '2018-05-27';
+ 
+****or**// just for fuel status and avilability not use this****
+ 
+ select VName from Vehicle join Hub on Vehicle.HubId=Hub.HubId where HName='Patel Nagar' and Available=1 and FuelStatus=1;
+
+
+4.

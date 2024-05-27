@@ -1,0 +1,62 @@
+DATABASE CREATION
+
+create database MyProject;
+
+
+create table Category
+(
+Category_Id int primary key auto_increment,
+Category_Name varchar (250) not null,
+Sub_Category boolean not null,
+Category_Image_Url varchar(500)
+);
+
+
+select * from Category;
+
+INSERTION
+
+insert into Category values (5,'Electronics',true,'trial');
+
+insert into Category (Category_Name,Sub_Category,Category_Image_Url) 
+values ('Cars',false,'trial2');
+
+select * from Category
+where Sub_Category = true;
+
+==============================================================================
+
+SUB-CATEGORY
+
+create table Sub_Category
+(
+SubCategory_Id int primary key auto_increment,
+SubCategory_Name varchar (250) not null,
+SubCategory_Url varchar(500),
+foreign key(Category_Id) references Category(Category_Id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+1	Mumbai
+1	Pune
+1	Nashik
+1	Aurangabad
+2	Gandhinagar
+2	Surat
+2	Ahmedabad
+3	Noida
+3	Dwarka
+3	NewDelhi
+4	Banglore
+4	Manglore
+4	Belgaum
+5	Kolkata
+5	Howrah
+5	Darjeeling
+5	Siliguri
+6	Kochi
+6	Kollam
+6	Munnar
+6	Thiruvalla
+7	Agra
+7	Lucknow
+7	Kanpur
+7	Varanasi
+8	Indore
+8	Bhopal
+8	Ujjain
+9	Jaipur
+9	Ajmer
+9	Jodhpur
+
+
+
+
+
+
+
+
+
+Juhu	Juhu Circle,Mumbai	1	1
+Dadar	Dadar Railway Station,Mumbai	1	1
+Shivaji Nagar	Shivaji Nagar, Pune	1	2
+Hinjewadi	Wipro Circle,Pune	1	2
+Samarth Nagar	Pathardi	1	3
+
+
+
+
+
+Maharashtra
+Gujrat
+Delhi
+Karnatak
+West Bengal
+Kerala
+Uttar Pradesh
+Madhya Pradesh
+Rajasthan

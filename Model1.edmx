@@ -1,0 +1,1122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FleetModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="FleetModelStoreContainer">
+          <EntitySet Name="AddOn" EntityType="FleetModel.Store.AddOn" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Airport" EntityType="FleetModel.Store.Airport" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Booking_dtc" EntityType="FleetModel.Store.Booking_dtc" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Booking_hdr" EntityType="FleetModel.Store.Booking_hdr" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CarClass" EntityType="FleetModel.Store.CarClass" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="City" EntityType="FleetModel.Store.City" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customer" EntityType="FleetModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Hub" EntityType="FleetModel.Store.Hub" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Invoice_dtc" EntityType="FleetModel.Store.Invoice_dtc" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Invoice_hdr" EntityType="FleetModel.Store.Invoice_hdr" store:Type="Tables" store:Schema="dbo" store:Name="Invoice_hdr">
+            <DefiningQuery>SELECT 
+      [Invoice_hdr].[InvId] AS [InvId], 
+      [Invoice_hdr].[IvcDate] AS [IvcDate], 
+      [Invoice_hdr].[Bid] AS [Bid], 
+      [Invoice_hdr].[PickDate] AS [PickDate], 
+      [Invoice_hdr].[ReturnDate] AS [ReturnDate], 
+      [Invoice_hdr].[PickLoc] AS [PickLoc], 
+      [Invoice_hdr].[RetLoc] AS [RetLoc], 
+      [Invoice_hdr].[CarId] AS [CarId], 
+      [Invoice_hdr].[VId] AS [VId], 
+      [Invoice_hdr].[CarRentAmt] AS [CarRentAmt], 
+      [Invoice_hdr].[AddOnAmt] AS [AddOnAmt], 
+      [Invoice_hdr].[TotalAmt] AS [TotalAmt]
+      FROM [dbo].[Invoice_hdr] AS [Invoice_hdr]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Login" EntityType="FleetModel.Store.Login" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="State" EntityType="FleetModel.Store.State" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Vehicle" EntityType="FleetModel.Store.Vehicle" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="Airport_fk0" Association="FleetModel.Store.Airport_fk0">
+            <End Role="Hub" EntitySet="Hub" />
+            <End Role="Airport" EntitySet="Airport" />
+          </AssociationSet>
+          <AssociationSet Name="Booking_dtc_fk0" Association="FleetModel.Store.Booking_dtc_fk0">
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+            <End Role="Booking_dtc" EntitySet="Booking_dtc" />
+          </AssociationSet>
+          <AssociationSet Name="Booking_dtc_fk1" Association="FleetModel.Store.Booking_dtc_fk1">
+            <End Role="AddOn" EntitySet="AddOn" />
+            <End Role="Booking_dtc" EntitySet="Booking_dtc" />
+          </AssociationSet>
+          <AssociationSet Name="Booking_hdr_fk0" Association="FleetModel.Store.Booking_hdr_fk0">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+          </AssociationSet>
+          <AssociationSet Name="Booking_hdr_fk1" Association="FleetModel.Store.Booking_hdr_fk1">
+            <End Role="CarClass" EntitySet="CarClass" />
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+          </AssociationSet>
+          <AssociationSet Name="City_fk0" Association="FleetModel.Store.City_fk0">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="Customer_fk0" Association="FleetModel.Store.Customer_fk0">
+            <End Role="City" EntitySet="City" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="Customer_fk1" Association="FleetModel.Store.Customer_fk1">
+            <End Role="State" EntitySet="State" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="Hub_fk0" Association="FleetModel.Store.Hub_fk0">
+            <End Role="State" EntitySet="State" />
+            <End Role="Hub" EntitySet="Hub" />
+          </AssociationSet>
+          <AssociationSet Name="Hub_fk1" Association="FleetModel.Store.Hub_fk1">
+            <End Role="City" EntitySet="City" />
+            <End Role="Hub" EntitySet="Hub" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_dtc_fk0" Association="FleetModel.Store.Invoice_dtc_fk0">
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+            <End Role="Invoice_dtc" EntitySet="Invoice_dtc" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_dtc_fk1" Association="FleetModel.Store.Invoice_dtc_fk1">
+            <End Role="AddOn" EntitySet="AddOn" />
+            <End Role="Invoice_dtc" EntitySet="Invoice_dtc" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_hdr_fk0" Association="FleetModel.Store.Invoice_hdr_fk0">
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+            <End Role="Invoice_hdr" EntitySet="Invoice_hdr" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_hdr_fk1" Association="FleetModel.Store.Invoice_hdr_fk1">
+            <End Role="CarClass" EntitySet="CarClass" />
+            <End Role="Invoice_hdr" EntitySet="Invoice_hdr" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_hdr_fk2" Association="FleetModel.Store.Invoice_hdr_fk2">
+            <End Role="Vehicle" EntitySet="Vehicle" />
+            <End Role="Invoice_hdr" EntitySet="Invoice_hdr" />
+          </AssociationSet>
+          <AssociationSet Name="Vehicle_fk0" Association="FleetModel.Store.Vehicle_fk0">
+            <End Role="Hub" EntitySet="Hub" />
+            <End Role="Vehicle" EntitySet="Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="Vehicle_fk1" Association="FleetModel.Store.Vehicle_fk1">
+            <End Role="CarClass" EntitySet="CarClass" />
+            <End Role="Vehicle" EntitySet="Vehicle" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AddOn">
+          <Key>
+            <PropertyRef Name="AId" />
+          </Key>
+          <Property Name="AId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AName" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="ARate" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Airport">
+          <Key>
+            <PropertyRef Name="ApId" />
+          </Key>
+          <Property Name="ApId" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="ApName" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="HubId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Booking_dtc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Bid" Type="int" Nullable="false" />
+          <Property Name="Aid" Type="int" Nullable="false" />
+          <Property Name="Rate" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Booking_hdr">
+          <Key>
+            <PropertyRef Name="Bid" />
+          </Key>
+          <Property Name="Bid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="CId" Type="int" Nullable="false" />
+          <Property Name="BName" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="BAddress" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Pin" Type="int" Nullable="false" />
+          <Property Name="PhoneNo" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Pick Up Date" Type="datetime2" Nullable="false" Precision="0" />
+          <Property Name="Return Date" Type="datetime2" Nullable="false" Precision="0" />
+          <Property Name="Pick Up Loc" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Return Loc" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarClass">
+          <Key>
+            <PropertyRef Name="CarId" />
+          </Key>
+          <Property Name="CarId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CType" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="CImg" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="RDaily" Type="float" Nullable="false" />
+          <Property Name="RWeekly" Type="float" Nullable="false" />
+          <Property Name="RMonthly" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="varchar" Nullable="false" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CId" />
+          </Key>
+          <Property Name="CId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="CAddress" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="Pin" Type="int" Nullable="false" />
+          <Property Name="PhoneNo" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Role" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hub">
+          <Key>
+            <PropertyRef Name="HubId" />
+          </Key>
+          <Property Name="HubId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="HName" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invoice_dtc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Bid" Type="int" Nullable="false" />
+          <Property Name="Aid" Type="int" Nullable="false" />
+          <Property Name="Rate" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Fleet.dbo.Invoice_hdr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Invoice_hdr">
+          <Key>
+            <PropertyRef Name="InvId" />
+            <PropertyRef Name="IvcDate" />
+            <PropertyRef Name="Bid" />
+            <PropertyRef Name="PickDate" />
+            <PropertyRef Name="ReturnDate" />
+            <PropertyRef Name="PickLoc" />
+            <PropertyRef Name="RetLoc" />
+            <PropertyRef Name="CarId" />
+            <PropertyRef Name="VId" />
+            <PropertyRef Name="CarRentAmt" />
+            <PropertyRef Name="AddOnAmt" />
+            <PropertyRef Name="TotalAmt" />
+          </Key>
+          <Property Name="InvId" Type="int" Nullable="false" />
+          <Property Name="IvcDate" Type="date" Nullable="false" />
+          <Property Name="Bid" Type="int" Nullable="false" />
+          <Property Name="PickDate" Type="date" Nullable="false" />
+          <Property Name="ReturnDate" Type="date" Nullable="false" />
+          <Property Name="PickLoc" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="RetLoc" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="VId" Type="int" Nullable="false" />
+          <Property Name="CarRentAmt" Type="float" Nullable="false" />
+          <Property Name="AddOnAmt" Type="float" Nullable="false" />
+          <Property Name="TotalAmt" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Role" Type="varchar" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="varchar" Nullable="false" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VId" />
+          </Key>
+          <Property Name="VId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="VName" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="LicNo" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="HubId" Type="int" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="FuelStatus" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="ServiceDate" Type="date" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="Airport_fk0">
+          <End Role="Hub" Type="FleetModel.Store.Hub" Multiplicity="1" />
+          <End Role="Airport" Type="FleetModel.Store.Airport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hub">
+              <PropertyRef Name="HubId" />
+            </Principal>
+            <Dependent Role="Airport">
+              <PropertyRef Name="HubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Booking_dtc_fk0">
+          <End Role="Booking_hdr" Type="FleetModel.Store.Booking_hdr" Multiplicity="1" />
+          <End Role="Booking_dtc" Type="FleetModel.Store.Booking_dtc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking_hdr">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="Booking_dtc">
+              <PropertyRef Name="Bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Booking_dtc_fk1">
+          <End Role="AddOn" Type="FleetModel.Store.AddOn" Multiplicity="1" />
+          <End Role="Booking_dtc" Type="FleetModel.Store.Booking_dtc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddOn">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Booking_dtc">
+              <PropertyRef Name="Aid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Booking_hdr_fk0">
+          <End Role="Customer" Type="FleetModel.Store.Customer" Multiplicity="1" />
+          <End Role="Booking_hdr" Type="FleetModel.Store.Booking_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CId" />
+            </Principal>
+            <Dependent Role="Booking_hdr">
+              <PropertyRef Name="CId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Booking_hdr_fk1">
+          <End Role="CarClass" Type="FleetModel.Store.CarClass" Multiplicity="1" />
+          <End Role="Booking_hdr" Type="FleetModel.Store.Booking_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClass">
+              <PropertyRef Name="CarId" />
+            </Principal>
+            <Dependent Role="Booking_hdr">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="City_fk0">
+          <End Role="State" Type="FleetModel.Store.State" Multiplicity="1" />
+          <End Role="City" Type="FleetModel.Store.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer_fk0">
+          <End Role="City" Type="FleetModel.Store.City" Multiplicity="1" />
+          <End Role="Customer" Type="FleetModel.Store.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer_fk1">
+          <End Role="State" Type="FleetModel.Store.State" Multiplicity="1" />
+          <End Role="Customer" Type="FleetModel.Store.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hub_fk0">
+          <End Role="State" Type="FleetModel.Store.State" Multiplicity="1" />
+          <End Role="Hub" Type="FleetModel.Store.Hub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="Hub">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hub_fk1">
+          <End Role="City" Type="FleetModel.Store.City" Multiplicity="1" />
+          <End Role="Hub" Type="FleetModel.Store.Hub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Hub">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_dtc_fk0">
+          <End Role="Booking_hdr" Type="FleetModel.Store.Booking_hdr" Multiplicity="1" />
+          <End Role="Invoice_dtc" Type="FleetModel.Store.Invoice_dtc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking_hdr">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="Invoice_dtc">
+              <PropertyRef Name="Bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_dtc_fk1">
+          <End Role="AddOn" Type="FleetModel.Store.AddOn" Multiplicity="1" />
+          <End Role="Invoice_dtc" Type="FleetModel.Store.Invoice_dtc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddOn">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Invoice_dtc">
+              <PropertyRef Name="Aid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_hdr_fk0">
+          <End Role="Booking_hdr" Type="FleetModel.Store.Booking_hdr" Multiplicity="1" />
+          <End Role="Invoice_hdr" Type="FleetModel.Store.Invoice_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking_hdr">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="Invoice_hdr">
+              <PropertyRef Name="Bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_hdr_fk1">
+          <End Role="CarClass" Type="FleetModel.Store.CarClass" Multiplicity="1" />
+          <End Role="Invoice_hdr" Type="FleetModel.Store.Invoice_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClass">
+              <PropertyRef Name="CarId" />
+            </Principal>
+            <Dependent Role="Invoice_hdr">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_hdr_fk2">
+          <End Role="Vehicle" Type="FleetModel.Store.Vehicle" Multiplicity="1" />
+          <End Role="Invoice_hdr" Type="FleetModel.Store.Invoice_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="VId" />
+            </Principal>
+            <Dependent Role="Invoice_hdr">
+              <PropertyRef Name="VId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vehicle_fk0">
+          <End Role="Hub" Type="FleetModel.Store.Hub" Multiplicity="1" />
+          <End Role="Vehicle" Type="FleetModel.Store.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hub">
+              <PropertyRef Name="HubId" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="HubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vehicle_fk1">
+          <End Role="CarClass" Type="FleetModel.Store.CarClass" Multiplicity="1" />
+          <End Role="Vehicle" Type="FleetModel.Store.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClass">
+              <PropertyRef Name="CarId" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FleetModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FleetEntitiesContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AddOns" EntityType="FleetModel.AddOn" />
+          <EntitySet Name="Airports" EntityType="FleetModel.Airport" />
+          <EntitySet Name="Booking_dtc" EntityType="FleetModel.Booking_dtc" />
+          <EntitySet Name="Booking_hdr" EntityType="FleetModel.Booking_hdr" />
+          <EntitySet Name="CarClasses" EntityType="FleetModel.CarClass" />
+          <EntitySet Name="Cities" EntityType="FleetModel.City" />
+          <EntitySet Name="Customers" EntityType="FleetModel.Customer" />
+          <EntitySet Name="Hubs" EntityType="FleetModel.Hub" />
+          <EntitySet Name="Invoice_dtc" EntityType="FleetModel.Invoice_dtc" />
+          <EntitySet Name="Invoice_hdr" EntityType="FleetModel.Invoice_hdr" />
+          <EntitySet Name="Logins" EntityType="FleetModel.Login" />
+          <EntitySet Name="States" EntityType="FleetModel.State" />
+          <EntitySet Name="Vehicles" EntityType="FleetModel.Vehicle" />
+          <AssociationSet Name="Booking_dtc_fk1" Association="FleetModel.Booking_dtc_fk1">
+            <End Role="AddOn" EntitySet="AddOns" />
+            <End Role="Booking_dtc" EntitySet="Booking_dtc" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_dtc_fk1" Association="FleetModel.Invoice_dtc_fk1">
+            <End Role="AddOn" EntitySet="AddOns" />
+            <End Role="Invoice_dtc" EntitySet="Invoice_dtc" />
+          </AssociationSet>
+          <AssociationSet Name="Airport_fk0" Association="FleetModel.Airport_fk0">
+            <End Role="Hub" EntitySet="Hubs" />
+            <End Role="Airport" EntitySet="Airports" />
+          </AssociationSet>
+          <AssociationSet Name="Booking_dtc_fk0" Association="FleetModel.Booking_dtc_fk0">
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+            <End Role="Booking_dtc" EntitySet="Booking_dtc" />
+          </AssociationSet>
+          <AssociationSet Name="Booking_hdr_fk0" Association="FleetModel.Booking_hdr_fk0">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+          </AssociationSet>
+          <AssociationSet Name="Booking_hdr_fk1" Association="FleetModel.Booking_hdr_fk1">
+            <End Role="CarClass" EntitySet="CarClasses" />
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_dtc_fk0" Association="FleetModel.Invoice_dtc_fk0">
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+            <End Role="Invoice_dtc" EntitySet="Invoice_dtc" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_hdr_fk0" Association="FleetModel.Invoice_hdr_fk0">
+            <End Role="Booking_hdr" EntitySet="Booking_hdr" />
+            <End Role="Invoice_hdr" EntitySet="Invoice_hdr" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_hdr_fk1" Association="FleetModel.Invoice_hdr_fk1">
+            <End Role="CarClass" EntitySet="CarClasses" />
+            <End Role="Invoice_hdr" EntitySet="Invoice_hdr" />
+          </AssociationSet>
+          <AssociationSet Name="Vehicle_fk1" Association="FleetModel.Vehicle_fk1">
+            <End Role="CarClass" EntitySet="CarClasses" />
+            <End Role="Vehicle" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="City_fk0" Association="FleetModel.City_fk0">
+            <End Role="State" EntitySet="States" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="Customer_fk0" Association="FleetModel.Customer_fk0">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="Hub_fk1" Association="FleetModel.Hub_fk1">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Hub" EntitySet="Hubs" />
+          </AssociationSet>
+          <AssociationSet Name="Customer_fk1" Association="FleetModel.Customer_fk1">
+            <End Role="State" EntitySet="States" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="Hub_fk0" Association="FleetModel.Hub_fk0">
+            <End Role="State" EntitySet="States" />
+            <End Role="Hub" EntitySet="Hubs" />
+          </AssociationSet>
+          <AssociationSet Name="Vehicle_fk0" Association="FleetModel.Vehicle_fk0">
+            <End Role="Hub" EntitySet="Hubs" />
+            <End Role="Vehicle" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="Invoice_hdr_fk2" Association="FleetModel.Invoice_hdr_fk2">
+            <End Role="Vehicle" EntitySet="Vehicles" />
+            <End Role="Invoice_hdr" EntitySet="Invoice_hdr" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AddOn">
+          <Key>
+            <PropertyRef Name="AId" />
+          </Key>
+          <Property Name="AId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AName" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="ARate" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Booking_dtc" Relationship="FleetModel.Booking_dtc_fk1" FromRole="AddOn" ToRole="Booking_dtc" />
+          <NavigationProperty Name="Invoice_dtc" Relationship="FleetModel.Invoice_dtc_fk1" FromRole="AddOn" ToRole="Invoice_dtc" />
+        </EntityType>
+        <EntityType Name="Airport">
+          <Key>
+            <PropertyRef Name="ApId" />
+          </Key>
+          <Property Name="ApId" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="ApName" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="HubId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hub" Relationship="FleetModel.Airport_fk0" FromRole="Airport" ToRole="Hub" />
+        </EntityType>
+        <EntityType Name="Booking_dtc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Bid" Type="Int32" Nullable="false" />
+          <Property Name="Aid" Type="Int32" Nullable="false" />
+          <Property Name="Rate" Type="Double" Nullable="false" />
+          <NavigationProperty Name="AddOn" Relationship="FleetModel.Booking_dtc_fk1" FromRole="Booking_dtc" ToRole="AddOn" />
+          <NavigationProperty Name="Booking_hdr" Relationship="FleetModel.Booking_dtc_fk0" FromRole="Booking_dtc" ToRole="Booking_hdr" />
+        </EntityType>
+        <EntityType Name="Booking_hdr">
+          <Key>
+            <PropertyRef Name="Bid" />
+          </Key>
+          <Property Name="Bid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CId" Type="Int32" Nullable="false" />
+          <Property Name="BName" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="BAddress" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Pin" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNo" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Pick_Up_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Return_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Pick_Up_Loc" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Return_Loc" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Booking_dtc" Relationship="FleetModel.Booking_dtc_fk0" FromRole="Booking_hdr" ToRole="Booking_dtc" />
+          <NavigationProperty Name="Customer" Relationship="FleetModel.Booking_hdr_fk0" FromRole="Booking_hdr" ToRole="Customer" />
+          <NavigationProperty Name="CarClass" Relationship="FleetModel.Booking_hdr_fk1" FromRole="Booking_hdr" ToRole="CarClass" />
+          <NavigationProperty Name="Invoice_dtc" Relationship="FleetModel.Invoice_dtc_fk0" FromRole="Booking_hdr" ToRole="Invoice_dtc" />
+          <NavigationProperty Name="Invoice_hdr" Relationship="FleetModel.Invoice_hdr_fk0" FromRole="Booking_hdr" ToRole="Invoice_hdr" />
+        </EntityType>
+        <EntityType Name="CarClass">
+          <Key>
+            <PropertyRef Name="CarId" />
+          </Key>
+          <Property Name="CarId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CType" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="CImg" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="RDaily" Type="Double" Nullable="false" />
+          <Property Name="RWeekly" Type="Double" Nullable="false" />
+          <Property Name="RMonthly" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Booking_hdr" Relationship="FleetModel.Booking_hdr_fk1" FromRole="CarClass" ToRole="Booking_hdr" />
+          <NavigationProperty Name="Invoice_hdr" Relationship="FleetModel.Invoice_hdr_fk1" FromRole="CarClass" ToRole="Invoice_hdr" />
+          <NavigationProperty Name="Vehicles" Relationship="FleetModel.Vehicle_fk1" FromRole="CarClass" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="State" Relationship="FleetModel.City_fk0" FromRole="City" ToRole="State" />
+          <NavigationProperty Name="Customers" Relationship="FleetModel.Customer_fk0" FromRole="City" ToRole="Customer" />
+          <NavigationProperty Name="Hubs" Relationship="FleetModel.Hub_fk1" FromRole="City" ToRole="Hub" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CId" />
+          </Key>
+          <Property Name="CId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="CAddress" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Pin" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNo" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Booking_hdr" Relationship="FleetModel.Booking_hdr_fk0" FromRole="Customer" ToRole="Booking_hdr" />
+          <NavigationProperty Name="City" Relationship="FleetModel.Customer_fk0" FromRole="Customer" ToRole="City" />
+          <NavigationProperty Name="State" Relationship="FleetModel.Customer_fk1" FromRole="Customer" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Hub">
+          <Key>
+            <PropertyRef Name="HubId" />
+          </Key>
+          <Property Name="HubId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="HName" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Airports" Relationship="FleetModel.Airport_fk0" FromRole="Hub" ToRole="Airport" />
+          <NavigationProperty Name="City" Relationship="FleetModel.Hub_fk1" FromRole="Hub" ToRole="City" />
+          <NavigationProperty Name="State" Relationship="FleetModel.Hub_fk0" FromRole="Hub" ToRole="State" />
+          <NavigationProperty Name="Vehicles" Relationship="FleetModel.Vehicle_fk0" FromRole="Hub" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="Invoice_dtc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Bid" Type="Int32" Nullable="false" />
+          <Property Name="Aid" Type="Int32" Nullable="false" />
+          <Property Name="Rate" Type="Double" Nullable="false" />
+          <NavigationProperty Name="AddOn" Relationship="FleetModel.Invoice_dtc_fk1" FromRole="Invoice_dtc" ToRole="AddOn" />
+          <NavigationProperty Name="Booking_hdr" Relationship="FleetModel.Invoice_dtc_fk0" FromRole="Invoice_dtc" ToRole="Booking_hdr" />
+        </EntityType>
+        <EntityType Name="Invoice_hdr">
+          <Key>
+            <PropertyRef Name="InvId" />
+            <PropertyRef Name="IvcDate" />
+            <PropertyRef Name="Bid" />
+            <PropertyRef Name="PickDate" />
+            <PropertyRef Name="ReturnDate" />
+            <PropertyRef Name="PickLoc" />
+            <PropertyRef Name="RetLoc" />
+            <PropertyRef Name="CarId" />
+            <PropertyRef Name="VId" />
+            <PropertyRef Name="CarRentAmt" />
+            <PropertyRef Name="AddOnAmt" />
+            <PropertyRef Name="TotalAmt" />
+          </Key>
+          <Property Name="InvId" Type="Int32" Nullable="false" />
+          <Property Name="IvcDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Bid" Type="Int32" Nullable="false" />
+          <Property Name="PickDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PickLoc" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="RetLoc" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <Property Name="VId" Type="Int32" Nullable="false" />
+          <Property Name="CarRentAmt" Type="Double" Nullable="false" />
+          <Property Name="AddOnAmt" Type="Double" Nullable="false" />
+          <Property Name="TotalAmt" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Booking_hdr" Relationship="FleetModel.Invoice_hdr_fk0" FromRole="Invoice_hdr" ToRole="Booking_hdr" />
+          <NavigationProperty Name="CarClass" Relationship="FleetModel.Invoice_hdr_fk1" FromRole="Invoice_hdr" ToRole="CarClass" />
+          <NavigationProperty Name="Vehicle" Relationship="FleetModel.Invoice_hdr_fk2" FromRole="Invoice_hdr" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Cities" Relationship="FleetModel.City_fk0" FromRole="State" ToRole="City" />
+          <NavigationProperty Name="Customers" Relationship="FleetModel.Customer_fk1" FromRole="State" ToRole="Customer" />
+          <NavigationProperty Name="Hubs" Relationship="FleetModel.Hub_fk0" FromRole="State" ToRole="Hub" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VId" />
+          </Key>
+          <Property Name="VId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="VName" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="LicNo" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="HubId" Type="Int32" Nullable="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <Property Name="FuelStatus" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="ServiceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CarClass" Relationship="FleetModel.Vehicle_fk1" FromRole="Vehicle" ToRole="CarClass" />
+          <NavigationProperty Name="Hub" Relationship="FleetModel.Vehicle_fk0" FromRole="Vehicle" ToRole="Hub" />
+          <NavigationProperty Name="Invoice_hdr" Relationship="FleetModel.Invoice_hdr_fk2" FromRole="Vehicle" ToRole="Invoice_hdr" />
+        </EntityType>
+        <Association Name="Booking_dtc_fk1">
+          <End Role="AddOn" Type="FleetModel.AddOn" Multiplicity="1" />
+          <End Role="Booking_dtc" Type="FleetModel.Booking_dtc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddOn">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Booking_dtc">
+              <PropertyRef Name="Aid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_dtc_fk1">
+          <End Role="AddOn" Type="FleetModel.AddOn" Multiplicity="1" />
+          <End Role="Invoice_dtc" Type="FleetModel.Invoice_dtc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddOn">
+              <PropertyRef Name="AId" />
+            </Principal>
+            <Dependent Role="Invoice_dtc">
+              <PropertyRef Name="Aid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Airport_fk0">
+          <End Role="Hub" Type="FleetModel.Hub" Multiplicity="1" />
+          <End Role="Airport" Type="FleetModel.Airport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hub">
+              <PropertyRef Name="HubId" />
+            </Principal>
+            <Dependent Role="Airport">
+              <PropertyRef Name="HubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Booking_dtc_fk0">
+          <End Role="Booking_hdr" Type="FleetModel.Booking_hdr" Multiplicity="1" />
+          <End Role="Booking_dtc" Type="FleetModel.Booking_dtc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking_hdr">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="Booking_dtc">
+              <PropertyRef Name="Bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Booking_hdr_fk0">
+          <End Role="Customer" Type="FleetModel.Customer" Multiplicity="1" />
+          <End Role="Booking_hdr" Type="FleetModel.Booking_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CId" />
+            </Principal>
+            <Dependent Role="Booking_hdr">
+              <PropertyRef Name="CId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Booking_hdr_fk1">
+          <End Role="CarClass" Type="FleetModel.CarClass" Multiplicity="1" />
+          <End Role="Booking_hdr" Type="FleetModel.Booking_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClass">
+              <PropertyRef Name="CarId" />
+            </Principal>
+            <Dependent Role="Booking_hdr">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_dtc_fk0">
+          <End Role="Booking_hdr" Type="FleetModel.Booking_hdr" Multiplicity="1" />
+          <End Role="Invoice_dtc" Type="FleetModel.Invoice_dtc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking_hdr">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="Invoice_dtc">
+              <PropertyRef Name="Bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_hdr_fk0">
+          <End Role="Booking_hdr" Type="FleetModel.Booking_hdr" Multiplicity="1" />
+          <End Role="Invoice_hdr" Type="FleetModel.Invoice_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking_hdr">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="Invoice_hdr">
+              <PropertyRef Name="Bid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_hdr_fk1">
+          <End Role="CarClass" Type="FleetModel.CarClass" Multiplicity="1" />
+          <End Role="Invoice_hdr" Type="FleetModel.Invoice_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClass">
+              <PropertyRef Name="CarId" />
+            </Principal>
+            <Dependent Role="Invoice_hdr">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vehicle_fk1">
+          <End Role="CarClass" Type="FleetModel.CarClass" Multiplicity="1" />
+          <End Role="Vehicle" Type="FleetModel.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClass">
+              <PropertyRef Name="CarId" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="City_fk0">
+          <End Role="State" Type="FleetModel.State" Multiplicity="1" />
+          <End Role="City" Type="FleetModel.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer_fk0">
+          <End Role="City" Type="FleetModel.City" Multiplicity="1" />
+          <End Role="Customer" Type="FleetModel.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hub_fk1">
+          <End Role="City" Type="FleetModel.City" Multiplicity="1" />
+          <End Role="Hub" Type="FleetModel.Hub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Hub">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Customer_fk1">
+          <End Role="State" Type="FleetModel.State" Multiplicity="1" />
+          <End Role="Customer" Type="FleetModel.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hub_fk0">
+          <End Role="State" Type="FleetModel.State" Multiplicity="1" />
+          <End Role="Hub" Type="FleetModel.Hub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="Hub">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vehicle_fk0">
+          <End Role="Hub" Type="FleetModel.Hub" Multiplicity="1" />
+          <End Role="Vehicle" Type="FleetModel.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hub">
+              <PropertyRef Name="HubId" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="HubId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Invoice_hdr_fk2">
+          <End Role="Vehicle" Type="FleetModel.Vehicle" Multiplicity="1" />
+          <End Role="Invoice_hdr" Type="FleetModel.Invoice_hdr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="VId" />
+            </Principal>
+            <Dependent Role="Invoice_hdr">
+              <PropertyRef Name="VId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FleetModelStoreContainer" CdmEntityContainer="FleetEntitiesContext">
+          <EntitySetMapping Name="AddOns">
+            <EntityTypeMapping TypeName="FleetModel.AddOn">
+              <MappingFragment StoreEntitySet="AddOn">
+                <ScalarProperty Name="AId" ColumnName="AId" />
+                <ScalarProperty Name="AName" ColumnName="AName" />
+                <ScalarProperty Name="ARate" ColumnName="ARate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Airports">
+            <EntityTypeMapping TypeName="FleetModel.Airport">
+              <MappingFragment StoreEntitySet="Airport">
+                <ScalarProperty Name="ApId" ColumnName="ApId" />
+                <ScalarProperty Name="ApName" ColumnName="ApName" />
+                <ScalarProperty Name="HubId" ColumnName="HubId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Booking_dtc">
+            <EntityTypeMapping TypeName="FleetModel.Booking_dtc">
+              <MappingFragment StoreEntitySet="Booking_dtc">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Bid" ColumnName="Bid" />
+                <ScalarProperty Name="Aid" ColumnName="Aid" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Booking_hdr">
+            <EntityTypeMapping TypeName="FleetModel.Booking_hdr">
+              <MappingFragment StoreEntitySet="Booking_hdr">
+                <ScalarProperty Name="Bid" ColumnName="Bid" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CId" ColumnName="CId" />
+                <ScalarProperty Name="BName" ColumnName="BName" />
+                <ScalarProperty Name="BAddress" ColumnName="BAddress" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Pick_Up_Date" ColumnName="Pick Up Date" />
+                <ScalarProperty Name="Return_Date" ColumnName="Return Date" />
+                <ScalarProperty Name="Pick_Up_Loc" ColumnName="Pick Up Loc" />
+                <ScalarProperty Name="Return_Loc" ColumnName="Return Loc" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarClasses">
+            <EntityTypeMapping TypeName="FleetModel.CarClass">
+              <MappingFragment StoreEntitySet="CarClass">
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="CType" ColumnName="CType" />
+                <ScalarProperty Name="CImg" ColumnName="CImg" />
+                <ScalarProperty Name="RDaily" ColumnName="RDaily" />
+                <ScalarProperty Name="RWeekly" ColumnName="RWeekly" />
+                <ScalarProperty Name="RMonthly" ColumnName="RMonthly" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="FleetModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="FleetModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CId" ColumnName="CId" />
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="CAddress" ColumnName="CAddress" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hubs">
+            <EntityTypeMapping TypeName="FleetModel.Hub">
+              <MappingFragment StoreEntitySet="Hub">
+                <ScalarProperty Name="HubId" ColumnName="HubId" />
+                <ScalarProperty Name="HName" ColumnName="HName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoice_dtc">
+            <EntityTypeMapping TypeName="FleetModel.Invoice_dtc">
+              <MappingFragment StoreEntitySet="Invoice_dtc">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Bid" ColumnName="Bid" />
+                <ScalarProperty Name="Aid" ColumnName="Aid" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoice_hdr">
+            <EntityTypeMapping TypeName="FleetModel.Invoice_hdr">
+              <MappingFragment StoreEntitySet="Invoice_hdr">
+                <ScalarProperty Name="InvId" ColumnName="InvId" />
+                <ScalarProperty Name="IvcDate" ColumnName="IvcDate" />
+                <ScalarProperty Name="Bid" ColumnName="Bid" />
+                <ScalarProperty Name="PickDate" ColumnName="PickDate" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="PickLoc" ColumnName="PickLoc" />
+                <ScalarProperty Name="RetLoc" ColumnName="RetLoc" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="VId" ColumnName="VId" />
+                <ScalarProperty Name="CarRentAmt" ColumnName="CarRentAmt" />
+                <ScalarProperty Name="AddOnAmt" ColumnName="AddOnAmt" />
+                <ScalarProperty Name="TotalAmt" ColumnName="TotalAmt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="FleetModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="FleetModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="FleetModel.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="VId" ColumnName="VId" />
+                <ScalarProperty Name="VName" ColumnName="VName" />
+                <ScalarProperty Name="LicNo" ColumnName="LicNo" />
+                <ScalarProperty Name="HubId" ColumnName="HubId" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="FuelStatus" ColumnName="FuelStatus" />
+                <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

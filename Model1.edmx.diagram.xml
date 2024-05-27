@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e230cd42db2c4c27b2569bc7caf89443" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="FleetModel.AddOn" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Airport" Width="1.5" PointX="10.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Booking_dtc" Width="1.5" PointX="12.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Booking_hdr" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.CarClass" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.City" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Customer" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Hub" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Invoice_dtc" Width="1.5" PointX="12.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Invoice_hdr" Width="1.5" PointX="15.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Login" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.State" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Vehicle" Width="1.5" PointX="13.5" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="FleetModel.Booking_dtc_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Invoice_dtc_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Airport_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Booking_dtc_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Booking_hdr_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Booking_hdr_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Invoice_dtc_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Invoice_hdr_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Invoice_hdr_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Vehicle_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.City_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Customer_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Hub_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Customer_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Hub_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Vehicle_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.Invoice_hdr_fk2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,214 @@
+***Table-State***
+
+
+USE [Fleet]
+GO
+
+INSERT INTO [dbo].[State]
+           ([StateName])
+     VALUES
+           ('Maharashtra'),
+('Gujrat'),
+('Delhi'),
+('Karnataka'),
+('West Bengal'),
+('Kerala'),
+('Uttar Pradesh'),
+('Madhya Pradesh'),
+('Rajasthan');
+GO
+
+
+***********Table-City**********
+
+USE [Fleet]
+GO
+
+INSERT INTO [dbo].[City]
+           ([StateId]
+           ,[CityName])
+     VALUES
+           (1,'Mumbai'),
+(1,'Pune'),
+(1,'Nashik'),
+(1,'Aurangabad'),
+(2,'Gandhinagar'),
+(2,'Surat'),
+(2,'Ahmedabad'),
+(3,'Noida'),
+(3,'Dwarka'),
+(3,'New Delhi'),
+(4,'Banglore'),
+(4,'Manglore'),
+(4,'Belgaum'),
+(5,'Kolkata'),
+(5,'Howrah'),
+(5,'Darjeeling'),
+(5,'Siliguri'),
+(6,'Kochi'),
+(6,'Kollam'),
+(6,'Munnar'),
+(6,'Thiruvalla'),
+(7,'Agra'),
+(7,'Lucknow'),
+(7,'Kanpur'),
+(7,'Varanasi'),
+(8,'Indore'),
+(8,'Bhopal'),
+(8,'Ujjain'),
+(9,'Jaipur'),
+(9,'Ajmer'),
+(9,'Jodhpur');
+
+
+GO
+
+
+*****************Table-Hub************
+USE [Fleet]
+GO
+
+INSERT INTO [dbo].[Hub]
+           ([HName]
+           ,[Address]
+           ,[StateId]
+           ,[CityId])
+     VALUES
+           ('Juhu','Juhu Circle,Mumbai',1,1),
+('Dadar','Dadar Railway Station,Mumbai',1,1),
+('Shivaji Nagar','Shivaji Nagar, Pune',1,2),
+('Hinjewadi','Wipro Circle,Pune',1,2),
+('Samarth Nagar','Nashik-Pune Highway,Nashik',1,3),
+('jai Bhawani Nagar','Near Workshop,Nashik',1,3),
+('Patil Nagar','Nanded Highway,Aurangabad',1,4),
+('MIDC Area','Waluj MIDC,Aurangabad',1,4),
+('Patel Nagar','Workshop Corner,Gandhinagar',2,5),
+('Modi Nagar',', Gurathi Colony,Gandhinagar',2,5),
+('Sardar Nagar','near water tank,Gandhinagar',2,5),
+('Prashnn Nagar','Market yard,Surat',2,6),
+('AbbaSaheb Nagar','Near Supermarket,Surat',2,6),
+(' Naidu Nagar','Beside cinepolish,Surat',2,6),
+('Surya Nagar','SuratRoad,Ahmedabad',2,7),
+('Suraj Nagar','marketline,Ahmedabad',2,7),
+('Rakesh Nagar','Baroda Road,Ahmedabad',2,7),
+('Adarsh Nagar','Mg road,Gurugram',3,8),
+('Moti Nagar',' Jaipur road,Dwarka',3,9),
+('Mukharjee Nagar',' MGM road,Dwarka',3,9),
+('Sharma Nagar',' Raja road,New Delhi',3,10),
+('panjab Nagar',' Ajmer road ,New Delhi',3,10),
+('Mamta Nagar',' Mangluru  road ,Banglore',4,11),
+('Samta Nagar',' Chennai  road ,Mangluru',4,12),
+('Niharika Nagar','Hydrabad road ,Belgaum',4,13),
+('Bosh Nagar','near howra bridge,Kolkata',5,14),
+('Banerjee Nagar','kolkata road,Howra',5,15),
+('Bibek Nagar','near pandey cloth center,Darjeeling',5,16),
+('Vitthal Nagar','Howra road,Siliguri',5,17),
+('Sangram Nagar','Beach road,Kochi',6,18),
+('Satesh Nagar','D.S. road,Kochi',6,18),
+('Kamlesh Nagar','Sparkle Garden,Kollam',6,19),
+('Saraswati Market','Market Road,Munnar',6,20),
+('Wiston Park','SV Road,Thiruvalla',6,21),
+('Shyam Circle','Pandit Road,Agra',7,22),
+('Lohar square','Shastri Road,Lucknow',7,23),
+('Amber Circle','W.D Road,Kanpur',7,24),
+('Sr.Mount Church','Bkc Road,Varanasi',7,25),
+('Tiwary Nagar','K.M. Road,Indore',8,26),
+('Fergusson College','IIT Road,Bhopal',8,27),
+('BVP College','Rajendra Road,Ujjain',8,28),
+('Lalit Nagar','Western Expressway,Jaipur',9,29),
+('Ekta Garden','Mvc Road,Ajmer',9,30),
+('Abu Azmi Park','H.S.V. Road,Jodhpur',9,31);
+GO
+
+*****************Table-AddOn************
+USE [Fleet]
+GO
+
+INSERT INTO [dbo].[AddOn]
+           ([AName]
+           ,[ARate])
+     VALUES
+           ('GPS NavigationSystem',500),
+		   ('Camping Kit',1000),
+		   ('Child Seat',100);
+GO
+
+*****************Table-CarClass************
+
+USE [Fleet]
+GO
+
+INSERT INTO [dbo].[CarClass]
+           ([CType]
+           ,[CImg]
+           ,[RDaily]
+           ,[RWeekly]
+           ,[RMonthly])
+     VALUES
+           ('Ford','abc',2000,5600,24000),
+		   ('Honda','xyz',3000,8400,36000),
+		   ('Tata','hsj',3500,9800,42000),
+		   ('Maruti','des',5000,14000,60000)
+GO
+
+*****************Table-Airport************
+
+USE [Fleet]
+GO
+
+INSERT INTO [dbo].[Airport]
+           ([ApName]
+           ,[HubId])
+     VALUES
+                   ('BOM',1),
+		   ('STV',12),
+		   ('DEL',21),
+		   ('BLR',23),
+		   ('CCU',26),
+		   ('COK',30),
+		   ('AGR',35),
+		   ('BHO',40),
+		   ('JAI',42)
+GO
+
+************Table-Vehicle********
+USE [Fleet]
+GO
+
+INSERT INTO [dbo].[Vehicle]
+           ([VName]
+           ,[LicNo]
+           ,[HubId]
+           ,[CarId]
+           ,[FuelStatus]
+           ,[ServiceDate]
+           ,[Available])
+     VALUES
+           ('Hyundai Grand i10','MH02-145',9,1,1,'2018-06-25',1),
+		    ('Hyundai Creta','MH02-146',9,2,1,'2018-07-20',1),
+			 ('Honda-City','MH02-147',9,3,1,'2018-06-21',1),
+			  ('Audi-Q8','MH02-148',9,4,1,'2018-05-25',1);
+
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
